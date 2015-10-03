@@ -102,7 +102,6 @@ end
 function GameMode:OnNonPlayerUsedAbility(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
   DebugPrintTable(keys)
-
   local abilityName =  keys.abilityname
 end
 
