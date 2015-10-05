@@ -3,6 +3,86 @@
 "DOTAAbilities"
 {
   "Version"   "1"
+
+"human_train_footman"
+{
+    "BaseClass"             "ability_datadriven"
+    "AbilityTextureName"    "footman"
+    "MaxLevel"              "1"
+ 
+    "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_POINT"
+ 
+    "AbilityGoldCost"    "0"
+   
+    "OnSpellStart"
+    {
+ 
+        "SpawnUnit"
+        {
+            "UnitName"    "npc_dota_custom_tower"
+            "Target"      "CASTER"
+            "UnitCount"   "1"
+            "UnitLimit"   "0"
+            "GrantsGold"  "1"
+            "GrantsXP"    "1"
+            "SpawnRadius" "200"
+            "OnSpawn"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName" "modifier_phased"
+                    "Target"       "TARGET"
+                    "Duration"     "0.03"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "buildings/rally_point.lua"
+                    "Function"      "MoveToRallyPoint"
+                }
+            }
+        }
+    }
+}
+
+"train_ele_builder"
+{
+    "BaseClass"             "ability_datadriven"
+    "AbilityTextureName"    "footman"
+    "MaxLevel"              "1"
+ 
+    "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_POINT"
+ 
+    "AbilityGoldCost"    "0"
+   
+    "OnSpellStart"
+    {
+ 
+        "SpawnUnit"
+        {
+            "UnitName"    "npc_dota_custom_ele_builder"
+            "Target"      "DOTA_ABILITY_BEHAVIOR_POINT"
+            "UnitCount"   "1"
+            "UnitLimit"   "0"
+            "GrantsGold"  "1"
+            "GrantsXP"    "1"
+            "SpawnRadius" "100"
+            "OnSpawn"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName" "modifier_phased"
+                    "Target"       "TARGET"
+                    "Duration"     "0.03"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "buildings/rally_point.lua"
+                    "Function"      "MoveToRallyPoint"
+                }
+            }
+        }
+    }
+}
   
   "example_ability"
   {
