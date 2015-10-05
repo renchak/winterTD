@@ -11,8 +11,8 @@
     "MaxLevel"              "1"
  
     "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_POINT"
- 
-    "AbilityGoldCost"    "0"
+	"AbilityCastRange"    "250" 
+    "AbilityGoldCost"    "10"
    
     "OnSpellStart"
     {
@@ -20,12 +20,12 @@
         "SpawnUnit"
         {
             "UnitName"    "npc_dota_custom_tower"
-            "Target"      "CASTER"
+            "Target"      "POINT"
             "UnitCount"   "1"
             "UnitLimit"   "0"
             "GrantsGold"  "1"
-            "GrantsXP"    "1"
-            "SpawnRadius" "200"
+            "GrantsXP"    "0"
+            "SpawnRadius" "10"
             "OnSpawn"
             {
                 "ApplyModifier"
@@ -33,11 +33,6 @@
                     "ModifierName" "modifier_phased"
                     "Target"       "TARGET"
                     "Duration"     "0.03"
-                }
-                "RunScript"
-                {
-                    "ScriptFile"    "buildings/rally_point.lua"
-                    "Function"      "MoveToRallyPoint"
                 }
             }
         }
@@ -51,8 +46,8 @@
     "MaxLevel"              "1"
  
     "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_POINT"
- 
-    "AbilityGoldCost"    "0"
+ 	"AbilityCastRange"    "250"
+    "AbilityGoldCost"    "50"
    
     "OnSpellStart"
     {
@@ -60,12 +55,12 @@
         "SpawnUnit"
         {
             "UnitName"    "npc_dota_custom_ele_builder"
-            "Target"      "DOTA_ABILITY_BEHAVIOR_POINT"
+            "Target"      "POINT"
             "UnitCount"   "1"
-            "UnitLimit"   "0"
+            "UnitLimit"   "1"
             "GrantsGold"  "1"
-            "GrantsXP"    "1"
-            "SpawnRadius" "100"
+            "GrantsXP"    "0"
+            "SpawnRadius" "10"
             "OnSpawn"
             {
                 "ApplyModifier"
@@ -73,11 +68,6 @@
                     "ModifierName" "modifier_phased"
                     "Target"       "TARGET"
                     "Duration"     "0.03"
-                }
-                "RunScript"
-                {
-                    "ScriptFile"    "buildings/rally_point.lua"
-                    "Function"      "MoveToRallyPoint"
                 }
             }
         }
