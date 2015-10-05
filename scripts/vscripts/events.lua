@@ -7,9 +7,9 @@ function GameMode:OnDisconnect(keys)
   DebugPrintTable(keys)
 
   local name = keys.name
-  local networkid = keys.networkid
+  local networkId = keys.networkid
   local reason = keys.reason
-  local userid = keys.userid
+  local userId = keys.userid
 
 end
 -- The overall game state has changed
@@ -40,7 +40,7 @@ function GameMode:OnEntityHurt(keys)
   --DebugPrint("[BAREBONES] Entity Hurt")
   --DebugPrintTable(keys)
 
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
+  local damageBits = keys.damagebits -- This might always be 0 and therefore useless
   if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
     local entCause = EntIndexToHScript(keys.entindex_attacker)
     local entVictim = EntIndexToHScript(keys.entindex_killed)
@@ -62,14 +62,14 @@ function GameMode:OnItemPickedUp(keys)
   local heroEntity = EntIndexToHScript(keys.HeroEntityIndex)
   local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local itemname = keys.itemname
+  local itemName = keys.itemname
 end
 
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
-  DebugPrintTable(keys) 
+  DebugPrintTable(keys)
 end
 
 -- An item was purchased by a player
@@ -82,11 +82,11 @@ function GameMode:OnItemPurchased( keys )
   if not plyID then return end
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
-  
+  local itemName = keys.itemname
+
   -- The cost of the item purchased
-  local itemcost = keys.itemcost
-  
+  local itemCost = keys.itemcost
+
 end
 
 -- An ability was used by a player
@@ -95,15 +95,14 @@ function GameMode:OnAbilityUsed(keys)
   DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local abilityname = keys.abilityname
+  local abilityName = keys.abilityname
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
 function GameMode:OnNonPlayerUsedAbility(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
   DebugPrintTable(keys)
-
-  local abilityname=  keys.abilityname
+  local abilityName =  keys.abilityname
 end
 
 -- A player changed their name
@@ -121,7 +120,7 @@ function GameMode:OnPlayerLearnedAbility( keys)
   DebugPrintTable(keys)
 
   local player = EntIndexToHScript(keys.player)
-  local abilityname = keys.abilityname
+  local abilityName = keys.abilityname
 end
 
 -- A channelled ability finished by either completing or being interrupted
@@ -129,7 +128,7 @@ function GameMode:OnAbilityChannelFinished(keys)
   DebugPrint('[BAREBONES] OnAbilityChannelFinished')
   DebugPrintTable(keys)
 
-  local abilityname = keys.abilityname
+  local abilityName = keys.abilityname
   local interrupted = keys.interrupted == 1
 end
 
@@ -222,7 +221,7 @@ function GameMode:OnEntityKilled( keys )
   DebugPrintTable( keys )
 
   GameMode:_OnEntityKilled( keys )
-  
+
 
   -- The Unit that was Killed
   local killedUnit = EntIndexToHScript( keys.entindex_killed )
@@ -240,14 +239,14 @@ function GameMode:OnEntityKilled( keys )
     killerAbility = EntIndexToHScript( keys.entindex_inflictor )
   end
 
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
+  local damageBits = keys.damagebits -- This might always be 0 and therefore useless
 
   -- Put code here to handle when an entity gets killed
 end
 
 
 
--- This function is called 1 to 2 times as the player connects initially but before they 
+-- This function is called 1 to 2 times as the player connects initially but before they
 -- have completely connected
 function GameMode:PlayerConnect(keys)
   DebugPrint('[BAREBONES] PlayerConnect')
@@ -260,11 +259,11 @@ function GameMode:OnConnectFull(keys)
   DebugPrintTable(keys)
 
   GameMode:_OnConnectFull(keys)
-  
+
   local entIndex = keys.index+1
   -- The Player entity of the joining user
   local ply = EntIndexToHScript(entIndex)
-  
+
   -- The Player ID of the joining player
   local playerID = ply:GetPlayerID()
 end
@@ -288,8 +287,8 @@ function GameMode:OnItemCombined(keys)
   local player = PlayerResource:GetPlayer(plyID)
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
-  
+  local itemName = keys.itemname
+
   -- The cost of the item purchased
   local itemcost = keys.itemcost
 end
@@ -313,7 +312,7 @@ function GameMode:OnTowerKill(keys)
   local team = keys.teamnumber
 end
 
--- This function is called whenever a player changes there custom team selection during Game Setup 
+-- This function is called whenever a player changes there custom team selection during Game Setup
 function GameMode:OnPlayerSelectedCustomTeam(keys)
   DebugPrint('[BAREBONES] OnPlayerSelectedCustomTeam')
   DebugPrintTable(keys)
