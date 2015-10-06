@@ -24,7 +24,6 @@ $RECYCLE.BIN/
 *.vcss_c
 *.vpcf
 *.bin
-/*
 /*/
 !/.gitignore
 !/scripts/
