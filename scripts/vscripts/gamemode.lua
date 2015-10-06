@@ -40,7 +40,7 @@ end
 
 -- A player picked a hero
 function CustomGameMode:OnPlayerPickHero(keys)
-
+	DebugPrint('[BAREBONES] Picked Hero!\n\n')
 	local hero = EntIndexToHScript(keys.heroindex)
 	local player = EntIndexToHScript(keys.player)
 	local playerID = hero:GetPlayerID()
@@ -119,11 +119,13 @@ function CustomGameMode:OnPlayerPickHero(keys)
 end
 
 function SpawnWaves()
+	DebugPrint('[BAREBONES] entered SpawnWaves!\n\n')
     local point = Entities:FindByName( nil, "rightSpawn"):GetAbsOrigin()
     local unit = CreateUnitByName("sheep", point, true, nil, nil, DOTA_TEAM_BADGUYS)
 end
 
 function CustomGameMode:OnGameInProgress()
+	DebugPrint('[BAREBONES] Entered OnGameInProgress!\n\n')
     local repeat_interval = 60 -- Rerun this timer every *repeat_interval* game-time seconds
     local start_after = 1 -- Start this timer *start_after* game-time seconds later
 
