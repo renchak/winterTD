@@ -11,28 +11,28 @@ function CustomGameMode:InitGameMode()
 
 	-- DebugPrint
 	Convars:RegisterConvar('debug_spew', tostring(DEBUG_SPEW), 'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
-	
+
 	-- Event Hooks
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(CustomGameMode, 'OnEntityKilled'), self)
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(CustomGameMode, 'OnPlayerPickHero'), self)
 
 	-- Filters
-    GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( CustomGameMode, "FilterExecuteOrder" ), self )
+  GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( CustomGameMode, "FilterExecuteOrder" ), self )
 
-    -- Register Listener
-    CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(CustomGameMode, 'OnPlayerSelectedEntities'))
-   	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))  	
-    CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
+  -- Register Listener
+  CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(CustomGameMode, 'OnPlayerSelectedEntities'))
+ 	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))
+  CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
 	CustomGameEventManager:RegisterListener( "building_helper_cancel_command", Dynamic_Wrap(BuildingHelper, "CancelCommand"))
-	
+
 	-- Full units file to get the custom values
 	GameRules.AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
-  	GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
-  	GameRules.HeroKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
-  	GameRules.ItemKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
-  	GameRules.Requirements = LoadKeyValues("scripts/kv/tech_tree.kv")
+  GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
+  GameRules.HeroKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
+  GameRules.ItemKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  GameRules.Requirements = LoadKeyValues("scripts/kv/tech_tree.kv")
 
-  	-- Store and update selected units of each pID
+  -- Store and update selected units of each pID
 	GameRules.SELECTED_UNITS = {}
 
 	-- Keeps the blighted gridnav positions
@@ -53,10 +53,10 @@ function CustomGameMode:OnPlayerPickHero(keys)
 	player.upgrades = {} -- This kees the name of all the upgrades researched
 	player.lumber = 0 -- Secondary resource of the player
 
-    -- Create city center in front of the hero
-    local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
-    local city_center_name = "city_center"
-	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5) 
+  -- Create city center in front of the hero
+  local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
+  local city_center_name = "city_center"
+	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
@@ -76,48 +76,6 @@ function CustomGameMode:OnPlayerPickHero(keys)
 	-- Add the hero to the player units list
 	table.insert(player.units, hero)
 	hero.state = "idle" --Builder state
-
-
-	-- Additional builders + lumber/gold. Can be uncommented if needed
-	-- Spawn some peasants around the hero
-	--[[local position = hero:GetAbsOrigin()
-	local numBuilders = 5
-	local angle = 360/numBuilders
-	for i=1,5 do
-		local rotate_pos = position + Vector(1,0,0) * 100
-		local builder_pos = RotatePosition(position, QAngle(0, angle*i, 0), rotate_pos)
-
-		local builder = CreateUnitByName("peasant", builder_pos, true, hero, hero, hero:GetTeamNumber())
-		builder:SetOwner(hero)
-		builder:SetControllableByPlayer(playerID, true)
-		table.insert(player.units, builder)
-		builder.state = "idle"]]
-
-		-- Go through the abilities and upgrade
-		CheckAbilityRequirements( builder, player )
-	end
-
-	-- Give Initial Resources
-	hero:SetGold(10, false)
-	ModifyLumber(player, 10)
-
-	-- Lumber tick
-	Timers:CreateTimer(1, function()
-		ModifyLumber(player, 1)
-		return 10
-	end)
-
-	-- Give a building ability
-	local item = CreateItem("item_build_wall", hero, hero)
-	hero:AddItem(item)
-
-	-- Learn all abilities (this isn't necessary on creatures)
-	for i=0,15 do
-		local ability = hero:GetAbilityByIndex(i)
-		if ability then ability:SetLevel(ability:GetMaxLevel()) end
-	end
-	hero:SetAbilityPoints(0)
-
 end
 
 -- An entity died
@@ -142,7 +100,7 @@ function CustomGameMode:OnEntityKilled( event )
 
 		-- Check units for downgrades
 		local building_name = killedUnit:GetUnitName()
-				
+
 		-- Substract 1 to the player building tracking table for that name
 		if player.buildings[building_name] then
 			player.buildings[building_name] = player.buildings[building_name] - 1
@@ -175,14 +133,14 @@ function CustomGameMode:OnEntityKilled( event )
 			end
 		end
 		player.structures = table_structures
-		
+
 		local table_units = {}
 		for _,unit in pairs(player.units) do
 			if unit and IsValidEntity(unit) then
 				table.insert(table_units, unit)
 			end
 		end
-		player.units = table_units		
+		player.units = table_units
 	end
 end
 
