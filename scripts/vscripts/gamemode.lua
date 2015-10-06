@@ -11,28 +11,27 @@ function CustomGameMode:InitGameMode()
 
 	-- DebugPrint
 	Convars:RegisterConvar('debug_spew', tostring(DEBUG_SPEW), 'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
-	
 	-- Event Hooks
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(CustomGameMode, 'OnEntityKilled'), self)
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(CustomGameMode, 'OnPlayerPickHero'), self)
 
 	-- Filters
-    GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( CustomGameMode, "FilterExecuteOrder" ), self )
+  GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( CustomGameMode, "FilterExecuteOrder" ), self )
 
-    -- Register Listener
-    CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(CustomGameMode, 'OnPlayerSelectedEntities'))
-   	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))  	
-    CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
+  -- Register Listener
+  CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(CustomGameMode, 'OnPlayerSelectedEntities'))
+ 	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))
+  CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
 	CustomGameEventManager:RegisterListener( "building_helper_cancel_command", Dynamic_Wrap(BuildingHelper, "CancelCommand"))
-	
+
 	-- Full units file to get the custom values
 	GameRules.AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
-  	GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
-  	GameRules.HeroKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
-  	GameRules.ItemKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
-  	GameRules.Requirements = LoadKeyValues("scripts/kv/tech_tree.kv")
+  GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
+  GameRules.HeroKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
+  GameRules.ItemKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+  GameRules.Requirements = LoadKeyValues("scripts/kv/tech_tree.kv")
 
-  	-- Store and update selected units of each pID
+  -- Store and update selected units of each pID
 	GameRules.SELECTED_UNITS = {}
 
 	-- Keeps the blighted gridnav positions
@@ -53,10 +52,10 @@ function CustomGameMode:OnPlayerPickHero(keys)
 	player.upgrades = {} -- This kees the name of all the upgrades researched
 	player.lumber = 0 -- Secondary resource of the player
 
-    -- Create city center in front of the hero
-    local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
-    local city_center_name = "city_center"
-	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5) 
+  -- Create city center in front of the hero
+  local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
+  local city_center_name = "city_center"
+	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
@@ -117,7 +116,6 @@ function CustomGameMode:OnPlayerPickHero(keys)
 		if ability then ability:SetLevel(ability:GetMaxLevel()) end
 	end
 	hero:SetAbilityPoints(0)
-
 end
 
 -- An entity died
@@ -142,7 +140,7 @@ function CustomGameMode:OnEntityKilled( event )
 
 		-- Check units for downgrades
 		local building_name = killedUnit:GetUnitName()
-				
+
 		-- Substract 1 to the player building tracking table for that name
 		if player.buildings[building_name] then
 			player.buildings[building_name] = player.buildings[building_name] - 1
@@ -175,14 +173,14 @@ function CustomGameMode:OnEntityKilled( event )
 			end
 		end
 		player.structures = table_structures
-		
+
 		local table_units = {}
 		for _,unit in pairs(player.units) do
 			if unit and IsValidEntity(unit) then
 				table.insert(table_units, unit)
 			end
 		end
-		player.units = table_units		
+		player.units = table_units
 	end
 end
 
