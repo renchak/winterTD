@@ -1,0 +1,47 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch draft
+# Your branch is up-to-date with 'origin/draft'.
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	modified:   maps/wintertd.vpk
+#	modified:   materials/overviews/wintertd.vmat_c
+#	modified:   materials/overviews/wintertd_tga_d13f6ea2.vtex_c
+#	modified:   panorama/layout/custom_game/custom_ui_manifest.vxml_c
+#	modified:   resource/addon_english.txt
+#	modified:   scripts/npc/herolist.txt
+#	modified:   scripts/npc/npc_abilities_custom.txt
+#	modified:   scripts/npc/npc_abilities_override.txt
+#	modified:   scripts/npc/npc_heroes_custom.txt
+#	modified:   scripts/npc/npc_items_custom.txt
+#	modified:   scripts/npc/npc_units_custom.txt
+#	modified:   scripts/vscripts/addon_game_mode.lua
+#	modified:   scripts/vscripts/events.lua
+#	modified:   scripts/vscripts/gamemode.lua
+#	modified:   scripts/vscripts/libraries/timers.lua
+#	modified:   tools_asset_info.bin
+#	modified:   tools_thumbnail_cache.bin
+#
+# Untracked files:
+#	materials/overviews/samplerts.vmat_c
+#	panorama/localization/
+#	particles/buildinghelper/
+#	resource/flash3/images/
+#	resource/overviews/samplerts.txt
+#	scripts/kv/
+#	scripts/npc/abilities/
+#	scripts/npc/heroes/
+#	scripts/npc/items/
+#	scripts/npc/units/
+#	scripts/vscripts/builder.lua
+#	scripts/vscripts/buildinghelper.lua
+#	scripts/vscripts/buildings/
+#	scripts/vscripts/libraries/popups.lua
+#	scripts/vscripts/mechanics.lua
+#	scripts/vscripts/orders.lua
+#	scripts/vscripts/upgrades.lua
+#	scripts/vscripts/utilities.lua
+#
+

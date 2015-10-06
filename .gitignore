@@ -13,6 +13,16 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.vmap
+*.vpk
+*.tif
+*.as
+*.fla
+*.vtex_c
+*.vxml_c
+*.vjs_c
+*.vcss_c
+*.vpcf
 
 # Windows shortcuts
 *.lnk
