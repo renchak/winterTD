@@ -2,6 +2,18 @@
 
 require('internal/util')
 require('gamemode')
+require('utilities')
+require('upgrades')
+require('mechanics')
+require('orders')
+require('builder')
+require('buildinghelper')
+
+
+require('libraries/timers')
+require('libraries/popups')
+require('libraries/notifications')
+
 
 function Precache( context )
 --[[
@@ -39,6 +51,26 @@ function Precache( context )
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
   PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
   PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
+
+  	--THIS IS FROM BUILDERHELPER THIS IS FROM BUILDERHELPER THIS IS FROM BUILDERHELPER THIS IS FROM BUILDERHELPER THIS IS FROM BUILDERHELPER THIS IS FROM BUILDERHELPER 
+  	-- Model ghost and grid particles 
+	PrecacheResource("particle_folder", "particles/buildinghelper", context)
+	PrecacheResource("particle_folder", "particles/econ/items/earthshaker/earthshaker_gravelmaw/", context)
+
+	-- Resources used
+	PrecacheUnitByNameSync("peasant", context)
+	PrecacheUnitByNameSync("tower", context)
+	PrecacheUnitByNameSync("tower_tier2", context)
+	PrecacheUnitByNameSync("city_center", context)
+	PrecacheUnitByNameSync("city_center_tier2", context)
+	PrecacheUnitByNameSync("tech_center", context)
+	PrecacheUnitByNameSync("dragon_tower", context)
+	PrecacheUnitByNameSync("dark_tower", context)
+	PrecacheUnitByNameSync("wall", context)
+
+	PrecacheItemByNameSync("item_apply_modifiers", context)
+
+	PrecacheUnitByNameSync("sheep", context) -- MY AWESOME CREEP
 end
 
 -- Create the game mode when we activate

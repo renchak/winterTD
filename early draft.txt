@@ -1,0 +1,62 @@
+
+				Map:													Scoreboard:
+-------------------------------------						-------------------------------------
+|				|	|				|						|	Player: |	Kills:	|	Gold:	|
+|				|1,2|				|						|-----------|-----------|-----------|
+|				|3,4|				|						|			|			|			|
+|		|		|	|		|		|						|			|			|			|
+|		|		|	|		|		|						|			|			|			|
+|		|		|	|		|		|						|			|			|			|
+|	1	|	2	|	|	3	|	4	|						-------------------------------------
+|		|		|	|		|		|
+|		|		|	|		|		|
+|		|		|___|		|		|
+|	^	|					|	^	|
+|	|	|					|	|	|
+|	X	|					|	X	|
+|------------------------------------
+Spawnpoints + Builder buildings
+
+
+
+Liv: 30
+
+
+Builders:
+1. Common Builder 				Start
+2. Disable Builder  			50g
+3. Elemental Builder 			100g
+4. Aura Builder 				200g
+5. Master Builder 				400g
+
+
+Common Builder:					Damage:			Range:			Attackspeed:		Aoe/Single:			Övrigt:
+1. Archery Tower 				låg damage 		medium Range 	hög attackspeed 	singletarget	 	Invis detection
+2. Canon Tower 					hög damage 		medium range 	låg attackspeed 	aoe
+3. Ballista/Trebuchet 			hög damage 		lång range 		låg attackspeed 	singletarget
+4. Ram 							hög damage 		låg range 		låg attackspeed 	aoe?
+
+Disable Builder:
+1. Slow Tower 					låg damage 		medium Range 	hög attackspeed 	singletarget	 	Invis detection, Slow
+2. Web Tower 					låg damage 		medium Range 	hög attackspeed 	singletarget	 	Meepo nät vs flying
+3. Stun Tower 					låg damage 		medium Range 	låg attackspeed 	aoe 			 	Stun, wd cask? storm hammer?
+4. Area Slow 					medium damage 	låg Range 		hög attackspeed 	aoe	 	
+
+Elemental Builder:
+1. Frost Tower 					medium damage 	medium Range 	medium attackspeed 	singletarget		op med aoe slow här också? (magic damage)
+2. Fire Tower 					hög damage		medium Range	hög attackspeed		aoe					Extra burn damage (magic damage)
+3. Storm Tower 					medium damage 	låg Range 		hög attackspeed 	singletarget		Invis detection, forking damage (Chain lightning från första target) (magic damage)
+4. Earth Tower 					hög damage 		låg Range 		medium attackspeed 	aoe 				shaman earthquake effect? (magic damage)
+
+Aura Builder:
+1. Attackspeed Tower 			0				lång Range 		0 					aoe 				attackspeed aura
+2. Damage Tower 				0 				lång Range 		0 					aoe 				extra damage aura
+3. Armor Tower 					0 				lång Range 		0					aoe 				reducing armor aura (aoe desolator/shivas)
+4. Magic Damage Tower 			0 				lång Range 		0 					aoe 				adds 25% extra damage to towers as magic damage
+
+
+Master Builder:
+1. Moon Tower 					hög damage 		medium range 	hög attackspeed 	singletarget 		luna ulti eclipse som damage (pure damage)
+2. Spirit Tower 				hög damage 		lång Range 		0 					aoe 				wisp spirits, small aoe at impact, konstanta bollar
+3. 
+4.
