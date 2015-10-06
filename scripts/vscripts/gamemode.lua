@@ -1,4 +1,3 @@
-require('settings')
 
 DEBUG_SPEW = 1
 
@@ -12,8 +11,8 @@ function CustomGameMode:InitGameMode()
 	-- DebugPrint
 	Convars:RegisterConvar('debug_spew', tostring(DEBUG_SPEW), 'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
 	-- Event Hooks
-	ListenToGameEvent('entity_killed', Dynamic_Wrap(CustomGameMode, 'OnEntityKilled'), self)
-	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(CustomGameMode, 'OnPlayerPickHero'), self)
+	--ListenToGameEvent('entity_killed', Dynamic_Wrap(CustomGameMode, 'OnEntityKilled'), self)
+	--ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(CustomGameMode, 'OnPlayerPickHero'), self)
 
 	-- Filters
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( CustomGameMode, "FilterExecuteOrder" ), self )
@@ -96,7 +95,7 @@ function CustomGameMode:OnPlayerPickHero(keys)
 		--CheckAbilityRequirements( builder, player )
 	--end
 
-	-- Give Initial Resources
+	--Give Initial Resources
 	hero:SetGold(10, false)
 	ModifyLumber(player, 10)
 
