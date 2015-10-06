@@ -94,8 +94,8 @@ function CustomGameMode:OnPlayerPickHero(keys)
 		builder.state = "idle"]]
 
 		-- Go through the abilities and upgrade
-		CheckAbilityRequirements( builder, player )
-	end
+		--CheckAbilityRequirements( builder, player )
+	--end
 
 	-- Give Initial Resources
 	hero:SetGold(10, false)
