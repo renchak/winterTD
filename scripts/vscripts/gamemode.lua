@@ -20,12 +20,12 @@ function CustomGameMode:InitGameMode()
 
   -- Register Listener
   CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(CustomGameMode, 'OnPlayerSelectedEntities'))
- 	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))
+  CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(CustomGameMode, "RepairOrder"))
   CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
-	CustomGameEventManager:RegisterListener( "building_helper_cancel_command", Dynamic_Wrap(BuildingHelper, "CancelCommand"))
+  CustomGameEventManager:RegisterListener( "building_helper_cancel_command", Dynamic_Wrap(BuildingHelper, "CancelCommand"))
 
 	-- Full units file to get the custom values
-	GameRules.AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
+  GameRules.AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
   GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
   GameRules.HeroKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   GameRules.ItemKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
@@ -55,7 +55,7 @@ function CustomGameMode:OnPlayerPickHero(keys)
   -- Create city center in front of the hero
   local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
   local city_center_name = "city_center"
-	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
+  local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
@@ -116,6 +116,21 @@ function CustomGameMode:OnPlayerPickHero(keys)
 		if ability then ability:SetLevel(ability:GetMaxLevel()) end
 	end
 	hero:SetAbilityPoints(0)
+end
+
+function SpawnWaves()
+    local point = Entities:FindByName( nil, "rightSpawn"):GetAbsOrigin()
+    local unit = CreateUnitByName("sheep", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+end
+
+function CustomGameMode:OnGameInProgress()
+    local repeat_interval = 60 -- Rerun this timer every *repeat_interval* game-time seconds
+    local start_after = 1 -- Start this timer *start_after* game-time seconds later
+
+    Timers:CreateTimer(start_after, function()
+        SpawnWaves()
+        return repeat_interval
+    end)
 end
 
 -- An entity died

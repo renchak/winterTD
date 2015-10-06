@@ -17,6 +17,7 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
   GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
+  GameRules:SetMaxNumberOfTeams ( MAX_NUMBER_OF_TEAMS )
 
   GameRules:SetFirstBloodActive( ENABLE_FIRST_BLOOD )
   GameRules:SetHideKillMessageHeaders( HIDE_KILL_BANNERS )

@@ -1,12 +1,12 @@
 function Wave(creep, numTotal, numPerSpawn, bonusEndGold, bountyGold)
 	local newWave = {}
-  newWave.IsBoss = false
+  	newWave.IsBoss = false
 	newWave.creep = creep
 	newWave.numTotal = numTotal
 	newWave.numPerSpawn = numPerSpawn
-  newWave.bonusEndGold = bonusEndGold
-  newWave.lifePenalty = 1
-  newWave.bountyGold = bountyGold
+  	newWave.bonusEndGold = bonusEndGold
+  	newWave.lifePenalty = 1
+  	newWave.bountyGold = bountyGold
 
 	return newWave
 end
