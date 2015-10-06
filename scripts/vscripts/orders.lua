@@ -1,4 +1,4 @@
-function CustomGameMode:FilterExecuteOrder( filterTable )
+function GameMode:FilterExecuteOrder( filterTable )
     --[[
     print("-----------------------------------------")
     for k, v in pairs( filterTable ) do
@@ -100,7 +100,7 @@ end
 ------------------------------------------------
 --             Repair Right-Click             --
 ------------------------------------------------
-function CustomGameMode:RepairOrder( event )
+function GameMode:RepairOrder( event )
     local pID = event.pID
     local entityIndex = event.mainSelected
     local targetIndex = event.targetIndex

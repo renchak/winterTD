@@ -1,5 +1,21 @@
 "DOTAUnits"
 {
+
+
+	"sheep"
+	{                                       
+    "Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"                "1"
+
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "200"
+
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"             "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
 	//=================================================================================
 	// Building: Tower Tier 1
 	//=================================================================================
@@ -710,20 +726,5 @@
 				"Wearable5" 	{	"ItemDef"		"10"		} //Boots
 			}
 		}
-	}
-
-    "sheep"
-	{                                       
-    	"Model"                 "models/items/hex/sheep_hex/sheep_hex.vmdl" // Model.
-    	"BaseClass"             "npc_dota_creature"
-    	"Level"                 "7"
-    	"ModelScale"                "1"
-
-    	"MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
-    	"MovementSpeed"             "200"
-
-	    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-	    "UnitRelationshipClass"             "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
 }
