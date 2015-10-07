@@ -3,7 +3,7 @@
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = true 
+BAREBONES_DEBUG_SPEW = true
 
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
@@ -38,8 +38,8 @@ require('events')
 
   In this function, place all of your PrecacheItemByNameAsync and PrecacheUnitByNameAsync.  These calls will be made
   after all players have loaded in, but before they have selected their heroes. PrecacheItemByNameAsync can also
-  be used to precache dynamically-added datadriven abilities instead of items.  PrecacheUnitByNameAsync will 
-  precache the precache{} block statement of the unit and all precache{} block statements for every Ability# 
+  be used to precache dynamically-added datadriven abilities instead of items.  PrecacheUnitByNameAsync will
+  precache the precache{} block statement of the unit and all precache{} block statements for every Ability#
   defined on the unit.
 
   This function should only be called once.  If you want to/need to precache more items/abilities/units at a later
@@ -49,7 +49,7 @@ require('events')
   This function should generally only be used if the Precache() function in addon_game_mode.lua is not working.
 ]]
 function GameMode:PostLoadPrecache()
-  DebugPrint("[BAREBONES] Performing Post-Load precache")    
+  DebugPrint("[BAREBONES] Performing Post-Load precache")
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
   --PrecacheItemByNameAsync("example_ability", function(...) end)
 
@@ -110,7 +110,7 @@ function GameMode:OnGameInProgress()
     function()
       DebugPrint("This function is called 1 seconds after the game begins, and every 5 seconds thereafter")
       SpawnCreeps()
-      return 5.0 -- Rerun this timer every 30 game-time seconds 
+      return 5.0 -- Rerun this timer every 30 game-time seconds
     end)
 end
 function SpawnCreeps()
@@ -126,7 +126,7 @@ function GameMode:InitGameMode()
   print('[BAREBONES] Starting to load Barebones gamemode...')
   	-- Get Rid of Shop button - Change the UI Layout if you want a shop button
 	GameRules:GetGameModeEntity():SetHUDVisible(6, false)
-	GameRules:GetGameModeEntity():SetCameraDistanceOverride(1300)
+	GameRules:GetGameModeEntity():SetCameraDistanceOverride(2000)
 
 	-- DebugPrint
 	Convars:RegisterConvar('debug_spew', tostring(DEBUG_SPEW), 'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
@@ -136,10 +136,10 @@ function GameMode:InitGameMode()
 
     -- Register Listener
     CustomGameEventManager:RegisterListener( "update_selected_entities", Dynamic_Wrap(GameMode, 'OnPlayerSelectedEntities'))
-   	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(GameMode, "RepairOrder"))  	
+   	CustomGameEventManager:RegisterListener( "repair_order", Dynamic_Wrap(GameMode, "RepairOrder"))
     CustomGameEventManager:RegisterListener( "building_helper_build_command", Dynamic_Wrap(BuildingHelper, "BuildCommand"))
 	CustomGameEventManager:RegisterListener( "building_helper_cancel_command", Dynamic_Wrap(BuildingHelper, "CancelCommand"))
-	
+
 	-- Full units file to get the custom values
 	GameRules.AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
   	GameRules.UnitKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
@@ -177,10 +177,10 @@ function GameMode:OnPlayerPickHero(keys)
 	player.upgrades = {} -- This kees the name of all the upgrades researched
 	player.lumber = 0 -- Secondary resource of the player
 
-    -- Create city center in front of the hero
-    local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
-    local city_center_name = "city_center"
-	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5) 
+  -- Create city center in front of the hero
+  local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
+  local city_center_name = "city_center"
+	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
@@ -265,7 +265,7 @@ function GameMode:OnEntityKilled( event )
 
 		-- Check units for downgrades
 		local building_name = killedUnit:GetUnitName()
-				
+
 		-- Substract 1 to the player building tracking table for that name
 		if player.buildings[building_name] then
 			player.buildings[building_name] = player.buildings[building_name] - 1
@@ -293,14 +293,14 @@ function GameMode:OnEntityKilled( event )
 			end
 		end
 		player.structures = table_structures
-		
+
 		local table_units = {}
 		for _,unit in pairs(player.units) do
 			if unit and IsValidEntity(unit) then
 				table.insert(table_units, unit)
 			end
 		end
-		player.units = table_units		
+		player.units = table_units
 	end
 end
 
