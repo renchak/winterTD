@@ -23,13 +23,10 @@ $RECYCLE.BIN/
 *.vjs_c
 *.vcss_c
 *.vpcf
-<<<<<<< HEAD
-=======
 *.bin
 /*/
 !/.gitignore
 !/scripts/
->>>>>>> spawnwaves
 
 # Windows shortcuts
 *.lnk
