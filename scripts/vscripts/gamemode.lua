@@ -127,7 +127,6 @@ function GameMode:InitGameMode()
   print('[BAREBONES] Starting to load Barebones gamemode...')
   	-- Get Rid of Shop button - Change the UI Layout if you want a shop button
 	GameRules:GetGameModeEntity():SetHUDVisible(6, false)
-	GameRules:GetGameModeEntity():SetCameraDistanceOverride(2000)
 
 	-- DebugPrint
 	Convars:RegisterConvar('debug_spew', tostring(DEBUG_SPEW), 'Set to 1 to start spewing debug info. Set to 0 to disable.', 0)
