@@ -115,7 +115,9 @@ function GameMode:OnGameInProgress()
 end
 function SpawnCreeps()
     local point = Entities:FindByName( nil, "rightSpawn"):GetAbsOrigin()
+    local waypoint = Entities:FindByName(nil, "pc6") --should be path_corner
     local unit = CreateUnitByName("sheep", point, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    unit:SetInitialGoalEntity( waypoint ) --makes the unit follow this waypoint-line
 end
 
 
