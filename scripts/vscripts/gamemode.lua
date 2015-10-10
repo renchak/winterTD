@@ -84,7 +84,7 @@ function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  hero:SetGold(500, false)
+  --hero:SetGold(500, false)
 
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   --local item = CreateItem("item_example_item", hero, hero)
@@ -115,7 +115,7 @@ function GameMode:OnGameInProgress()
 end
 function SpawnCreeps()
     local point = Entities:FindByName( nil, "rightSpawn"):GetAbsOrigin()
-    local waypoint = Entities:FindByName(nil, "pc6") --should be path_corner
+    local waypoint = Entities:FindByName(nil, "pcEND") --should be path_corner
     local unit = CreateUnitByName("sheep", point, true, nil, nil, DOTA_TEAM_NEUTRALS)
     unit:SetInitialGoalEntity( waypoint ) --makes the unit follow this waypoint-line
 end
@@ -182,7 +182,7 @@ function GameMode:OnPlayerPickHero(keys)
   -- Create city center in front of the hero
   local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
   local city_center_name = "city_center"
-	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
+  local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
