@@ -1,5 +1,5 @@
 //=================================================================================
-// Building: Tower Tier 1
+// Building: Archery Tower
 //=================================================================================
 "tower"
 {
@@ -10,13 +10,13 @@
 	"ModelScale"				"0.7"
 	"Level"						"1"
 	"HealthBarOffset"			"140"
-	"HasInventory"				"1"
+	"HasInventory"				"0"
 	"ConsideredHero"			"1"
 	
 	// Abilities
 	//----------------------------------------------------------------
-	"AbilityLayout"				"4"
-	"Ability1"					"train_tower_tier2"
+	"AbilityLayout"				""
+	"Ability1"					""
 	"Ability2"					""
 	"Ability3"					""
 	"Ability4"					""
@@ -34,7 +34,7 @@
 	"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 	"AttackDamageMin"			"23.0"
 	"AttackDamageMax"			"27.0"
-	"AttackRate"				"0.9"
+	"AttackRate"				"0.25"
 	"AttackAnimationPoint"		"0.3"
 	"AttackAcquisitionRange"	"700"
 	"AttackRange"				"700"
@@ -77,7 +77,6 @@
 	"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 }
-
 //=================================================================================
 // Building: Tower Tier 2
 //=================================================================================
@@ -158,30 +157,30 @@
 }
 
 //=================================================================================
-// Building: City Center
+// Building: Canon Tower
 //=================================================================================
 "city_center"
 {
 	// General
 	//----------------------------------------------------------------
 	"BaseClass"					"npc_dota_creature"
-	"Model"						"models/props_structures/good_ancient_dest_sim.vmdl"
-	"ModelScale"				"0.6"
-	"Level"						"2"
+	"Model"						"models/props_structures/statue_dragon003.vmdl"
+	"ModelScale"				"0.7"
+	"Level"						"1"
 	"HealthBarOffset"			"140"
-	"HasInventory"				"1"
+	"HasInventory"				"0"
 	"ConsideredHero"			"1"
 	
 	// Abilities
 	//----------------------------------------------------------------
-	"AbilityLayout"				"4"
-	"Ability1"					"train_city_center_tier2"
+	"AbilityLayout"				""
+	"Ability1"					""
 	"Ability2"					""
 	"Ability3"					""
 	"Ability4"					""
 	"Ability10"					"ability_building"
 	"Ability11"					"ability_building_queue"
-
+	
 	// Armor
 	//----------------------------------------------------------------
 	"ArmorPhysical"				"5"
@@ -189,10 +188,16 @@
 	
 	// Attack
 	//----------------------------------------------------------------
-	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-	"AttackDamageMin"			"0"
-	"AttackDamageMax"			"0"
+	"AttackDamageMin"			"47.0"
+	"AttackDamageMax"			"50.0"
+	"AttackRate"				"1"
+	"AttackAnimationPoint"		"0.3"
+	"AttackAcquisitionRange"	"700"
+	"AttackRange"				"700"
+	"ProjectileModel"			"particles/units/heroes/hero_techies/techies_base_attack_canonball_fire.vpcf"	
+	"ProjectileSpeed"			"1800"
 	
 	// Bounty
 	//----------------------------------------------------------------
@@ -201,8 +206,8 @@
 	
 	// Bounds
 	//----------------------------------------------------------------
-	"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
-	"RingRadius"				"220"
+	"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+	"RingRadius"				"100"
 	"CollisionSize"				"100"
 		
 	// Movement
@@ -212,7 +217,7 @@
 	
 	// Status
 	//----------------------------------------------------------------
-	"StatusHealth"				"2000"
+	"StatusHealth"				"1500"
 	"StatusHealthRegen"			"0"
 	"StatusMana"				"100"
 	"StatusManaRegen"			"0"
@@ -230,7 +235,6 @@
 	"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 }
-
 //=================================================================================
 // Building: City Center Tier 2
 //=================================================================================
