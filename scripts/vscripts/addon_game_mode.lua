@@ -3,7 +3,6 @@
 require('internal/util')
 require('gamemode')
 require('utilities')
-require('upgrades')
 require('mechanics')
 require('orders')
 require('builder')
@@ -58,18 +57,9 @@ function Precache( context )
 	PrecacheResource("particle_folder", "particles/econ/items/earthshaker/earthshaker_gravelmaw/", context)
 
 	-- Resources used
-	PrecacheUnitByNameSync("peasant", context)
-	PrecacheUnitByNameSync("tower", context)
-	PrecacheUnitByNameSync("tower_tier2", context)
-	PrecacheUnitByNameSync("city_center", context)
-	PrecacheUnitByNameSync("city_center_tier2", context)
-	PrecacheUnitByNameSync("tech_center", context)
-	PrecacheUnitByNameSync("dragon_tower", context)
-	PrecacheUnitByNameSync("dark_tower", context)
-	PrecacheUnitByNameSync("wall", context)
-
+	PrecacheUnitByNameSync("archery_tower", context)
+	PrecacheUnitByNameSync("canon_tower", context)
 	PrecacheItemByNameSync("item_apply_modifiers", context)
-
 	PrecacheUnitByNameSync("sheep", context) -- MY AWESOME CREEP
 end
 

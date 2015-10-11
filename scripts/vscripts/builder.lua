@@ -28,7 +28,6 @@ function Build( event )
 	local unit_table = UnitKV[building_name]
 	local build_time = ability:GetSpecialValueFor("build_time")
 	local gold_cost = ability:GetSpecialValueFor("gold_cost")
-	local lumber_cost = ability:GetSpecialValueFor("lumber_cost")
 
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	local playerID = hero:GetPlayerID()
@@ -38,9 +37,6 @@ function Build( event )
 	-- Always refund the gold here, as the building hasn't been placed yet
 	hero:ModifyGold(gold_cost, false, 0)
 
-	if not PlayerHasEnoughLumber( player, lumber_cost ) then
-		return
-	end
 
     -- Makes a building dummy and starts panorama ghosting
 	BuildingHelper:AddBuilding(event)
@@ -58,16 +54,6 @@ function Build( event )
        		end
        	end
 
-       	-- If not enough resources to queue, stop
-       	if not PlayerHasEnoughGold( player, lumber_cost ) then
-       		SendErrorMessage(caster:GetPlayerOwnerID(), "#error_not_enough_gold")
-			return false
-		end
-
-       	if not PlayerHasEnoughLumber( player, lumber_cost ) then
-       		SendErrorMessage(caster:GetPlayerOwnerID(), "#error_not_enough_lumber")
-			return false
-		end
 
 		return true
     end)
@@ -77,7 +63,7 @@ function Build( event )
 		
     	-- Spend resources
     	hero:ModifyGold(-gold_cost, false, 0)
-    	ModifyLumber( player, -lumber_cost)
+    	--ModifyLumber( player, -lumber_cost)
 
     	-- Play a sound
     	EmitSoundOnClient("DOTA_Item.ObserverWard.Activate", player)
@@ -102,7 +88,7 @@ function Build( event )
 		-- Refund resources for this cancelled work
 		if work.refund then
 			hero:ModifyGold(gold_cost, false, 0)
-    		ModifyLumber( player, lumber_cost)
+    		--ModifyLumber( player, lumber_cost)
     	end
 	end)
 
@@ -114,8 +100,8 @@ function Build( event )
 		-- Store the Build Time, Gold Cost and secondary resource the building 
 	    -- This is necessary for repair to know what was the cost of the building and use resources periodically
 	    unit.GoldCost = build_time
-	    unit.LumberCost = gold_cost
-	    unit.BuildTime = lumber_cost
+	    --unit.LumberCost = gold_cost
+	    --unit.BuildTime = lumber_cost
 
 		-- Give item to cancel
 		local item = CreateItem("item_building_cancel", playersHero, playersHero)
@@ -339,7 +325,7 @@ function Repair( event )
 
 	local building_name = building:GetUnitName()
 	local gold_cost = building.GoldCost
-	local lumber_cost = building.LumberCost
+	--local lumber_cost = building.LumberCost
 	local build_time = building.BuildTime
 
 	local state = building.state -- "completed" or "building"
@@ -358,7 +344,6 @@ function Repair( event )
 		if not building.health_deficit then
 			building.health_deficit = health_deficit
 			building.gold_used = 0
-			building.lumber_used = 0
 			building.HPAdjustment = 0
 			building.GoldAdjustment = 0
 			building.time_started = GameRules:GetGameTime()
@@ -382,7 +367,7 @@ function Repair( event )
 		gold_per_second = math.floor(gold_per_second) -- round down
 
 		-- Lumber takes floats just fine
-		local lumber_per_second = lumber_cost / ( build_time * 1.5 ) * 0.35 * stack_count
+		--local lumber_per_second = lumber_cost / ( build_time * 1.5 ) * 0.35 * stack_count
 
 		--[[print("Building is repaired for "..health_per_second)
 		if gold_per_second > 0 then
@@ -391,7 +376,7 @@ function Repair( event )
 			print("Cost is "..gold_float.." gold and "..lumber_per_second.." lumber per second")
 		end]]
 			
-		local healthGain = 0
+		--[[local healthGain = 0
 		if PlayerHasEnoughGold( player, math.ceil(gold_per_second+gold_float) ) and PlayerHasEnoughLumber( player, lumber_per_second ) then
 			-- Health
 			building.HPAdjustment = building.HPAdjustment + health_float
@@ -431,7 +416,7 @@ function Repair( event )
 
 			-- Toggle off
 			ToggleOff(ability)
-		end
+		end]]
 
 		-- Decrease the health left to finish construction and mark building as complete
 		if building.missingHealthToComplete then
@@ -457,8 +442,8 @@ function Repair( event )
 		ToggleOff(ability)
 
 		print("Repair End")
-		print("Start HP/Gold/Lumber/Time: ", building.health_deficit, gold_cost, lumber_cost, build_time)
-		print("Final HP/Gold/Lumber/Time: ", building:GetHealth(), building.gold_used, math.floor(building.lumber_used), GameRules:GetGameTime() - building.time_started)
+		print("Start HP/Gold/Time: ", building.health_deficit, gold_cost, build_time)
+		print("Final HP/Gold/Time: ", building:GetHealth(), building.gold_used, GameRules:GetGameTime() - building.time_started)
 		building.health_deficit = nil
 	end
 

@@ -176,64 +176,35 @@ function GameMode:OnPlayerPickHero(keys)
 	player.units = {} -- This keeps the handle of all the units of the player, to iterate for unlocking upgrades
 	player.structures = {} -- This keeps the handle of the constructed units, to iterate for unlocking upgrades
 	player.buildings = {} -- This keeps the name and quantity of each building
-	player.upgrades = {} -- This kees the name of all the upgrades researched
-	player.lumber = 0 -- Secondary resource of the player
+	--player.upgrades = {} -- This kees the name of all the upgrades researched
+	--player.lumber = 0 -- Secondary resource of the player
 
-  -- Create city center in front of the hero
-  local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
-  local city_center_name = "city_center"
-  local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
-
-	-- Set health to test repair
-	building:SetHealth(building:GetMaxHealth()/3)
 
 	-- These are required for repair to know how many resources the building takes
-	building.GoldCost = 100
-	building.LumberCost = 100
-	building.BuildTime = 15
+	--building.GoldCost = 100
+	--building.LumberCost = 100
+	--building.BuildTime = 15
 
 	-- Add the building to the player structures list
-	player.buildings[city_center_name] = 1
-	table.insert(player.structures, building)
+	--player.buildings[canon_tower_name] = 1
+	--table.insert(player.structures, building)
 
-	CheckAbilityRequirements( hero, player )
-	CheckAbilityRequirements( building, player )
+	--CheckAbilityRequirements( hero, player )
+	--CheckAbilityRequirements( building, player )
 
 	-- Add the hero to the player units list
 	table.insert(player.units, hero)
 	hero.state = "idle" --Builder state
 
-	-- Spawn some peasants around the hero
-	local position = hero:GetAbsOrigin()
-	local numBuilders = 5
-	local angle = 360/numBuilders
-	for i=1,5 do
-		local rotate_pos = position + Vector(1,0,0) * 100
-		local builder_pos = RotatePosition(position, QAngle(0, angle*i, 0), rotate_pos)
-
-		local builder = CreateUnitByName("peasant", builder_pos, true, hero, hero, hero:GetTeamNumber())
-		builder:SetOwner(hero)
-		builder:SetControllableByPlayer(playerID, true)
-		table.insert(player.units, builder)
-		builder.state = "idle"
-
-		-- Go through the abilities and upgrade
-		CheckAbilityRequirements( builder, player )
-	end
-
 	-- Give Initial Resources
 	hero:SetGold(5000, false)
-	ModifyLumber(player, 5000)
+	--ModifyLumber(player, 5000)
 
 	-- Lumber tick
-	Timers:CreateTimer(1, function()
-		ModifyLumber(player, 10)
-		return 10
-	end)
-
-	-- Give a building ability
-	local item = CreateItem("item_build_wall", hero, hero)
-	hero:AddItem(item)
+	--Timers:CreateTimer(1, function()
+		--ModifyLumber(player, 10)
+		--return 10
+	--end)
 
 	-- Learn all abilities (this isn't necessary on creatures)
 	for i=0,15 do

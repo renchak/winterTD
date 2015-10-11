@@ -13,7 +13,7 @@
 	"SelectionGroup"            "Peasants"
 	"SoundSet"					"Hero_Kunkka"
 
-	"UnitLabel"					"builder"
+	"UnitLabel"					"Builder"
 
 	"precache"
 	{
@@ -24,13 +24,13 @@
 	
 	// Abilities
 	//----------------------------------------------------------------
-	"AbilityLayout"				"6"
+	"AbilityLayout"				"5"
 	"Ability1" 					"repair"
-	"Ability2" 					"build_tower"
-	"Ability3" 					"build_city_center"
-	"Ability4" 					"build_tech_center"
-	"Ability5"					"build_dragon_tower"
-	"Ability6" 					"ultimate_ability"
+	"Ability2" 					"build_archery_tower"
+	"Ability3" 					"build_canon_tower"
+	"Ability4" 					"build_ram_tower"
+	"Ability5"					"build_siege_tower"
+	"Ability6" 					""
 
 	// Armor
 	//----------------------------------------------------------------
