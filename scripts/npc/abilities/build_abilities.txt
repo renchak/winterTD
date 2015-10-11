@@ -51,11 +51,10 @@
 	}
 }
 
-// Placement of a big building, with rotation of the model, builder goes inside
-"build_city_center"
+"build_canon_tower"
 {
 	"BaseClass"             		"ability_datadriven"
-	"AbilityTextureName"			"build_city_center"
+	"AbilityTextureName"			"build_canon_tower"
 	"MaxLevel" 						"1"
 
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -63,19 +62,17 @@
 
 	// BuildingHelper info
 	"Building"						"1" //bool
-	"BuildingSize"					"5"
-	"BuildTime"						"15.0"
+	"BuildingSize"					"2"
+	"BuildTime"						"5.0"
 	"AbilityCastRange"				"200"
 	"UpdateHealth"					"1" //bool
 	"Scale"							"0" //bool
 	"PlayerCanControl"				"1" //bool
+	"ModelRotation"					"90"
 
-	"BuilderInside"					"1" //bool
-	"ModelRotation"					"90.0"
-
-	"UnitName"						"city_center"
+	"UnitName"						"canon_tower"
 	"AbilityCooldown"				"0"
-	"AbilityGoldCost"				"100"
+	"AbilityGoldCost"				"50"
 	// End of BuildingHelper info
 
 	"AbilitySpecial"
@@ -83,17 +80,17 @@
 		"01"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"build_time"			"15.0"
+			"build_time"			"5.0"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"gold_cost"				"100"
+			"gold_cost"				"50"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"lumber_cost"			"100"
+			"lumber_cost"			"0"
 		}
 	}
 
@@ -107,8 +104,170 @@
 	}
 }
 
+"build_ram_tower"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"build_ram_tower"
+	"MaxLevel" 						"1"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityCastPoint"				"0"
+
+	// BuildingHelper info
+	"Building"						"1" //bool
+	"BuildingSize"					"2"
+	"BuildTime"						"5.0"
+	"AbilityCastRange"				"200"
+	"UpdateHealth"					"1" //bool
+	"Scale"							"0" //bool
+	"PlayerCanControl"				"1" //bool
+	"ModelRotation"					"90"
+
+	"UnitName"						"ram_tower"
+	"AbilityCooldown"				"0"
+	"AbilityGoldCost"				"50"
+	// End of BuildingHelper info
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"build_time"			"5.0"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"gold_cost"				"50"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"lumber_cost"			"0"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"builder.lua"
+			"Function"		"Build"
+		}
+	}
+}
+
+"build_siege_tower"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"build_siege_tower"
+	"MaxLevel" 						"1"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityCastPoint"				"0"
+
+	// BuildingHelper info
+	"Building"						"1" //bool
+	"BuildingSize"					"2"
+	"BuildTime"						"5.0"
+	"AbilityCastRange"				"200"
+	"UpdateHealth"					"1" //bool
+	"Scale"							"0" //bool
+	"PlayerCanControl"				"1" //bool
+	"ModelRotation"					"90"
+
+	"UnitName"						"siege_tower"
+	"AbilityCooldown"				"0"
+	"AbilityGoldCost"				"50"
+	// End of BuildingHelper info
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"build_time"			"5.0"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"gold_cost"				"50"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"lumber_cost"			"0"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"builder.lua"
+			"Function"		"Build"
+		}
+	}
+}
+
+// Placement of a big building, with rotation of the model, builder goes inside
+//"build_city_center"
+//{
+	//"BaseClass"             		"ability_datadriven"
+	//"AbilityTextureName"			"build_city_center"
+	//"MaxLevel" 						"1"
+
+	//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	//"AbilityCastPoint"				"0"
+
+	// BuildingHelper info
+	//"Building"						"1" //bool
+	//"BuildingSize"					"5"
+	//"BuildTime"						"15.0"
+	//"AbilityCastRange"				"200"
+	//"UpdateHealth"					"1" //bool
+	//"Scale"							"0" //bool
+	//"PlayerCanControl"				"1" //bool
+
+	//"BuilderInside"					"1" //bool
+	//"ModelRotation"					"90.0"
+
+	//"UnitName"						"city_center"
+	//"AbilityCooldown"				"0"
+	//"AbilityGoldCost"				"100"
+	// End of BuildingHelper info
+
+	//"AbilitySpecial"
+	//{
+	//	"01"
+	//	{
+	//		"var_type"				"FIELD_FLOAT"
+	//		"build_time"			"15.0"
+	//	}
+	//	"02"
+	//	{
+	//		"var_type"				"FIELD_INTEGER"
+	//		"gold_cost"				"100"
+	//	}
+	//	"03"
+	//	{
+	//		"var_type"				"FIELD_INTEGER"
+	//		"lumber_cost"			"100"
+	//	}
+	//}
+
+	//"OnSpellStart"
+	//{
+	//	"RunScript"
+	//	{
+	//		"ScriptFile"	"builder.lua"
+	//		"Function"		"Build"
+	//	}
+	//}
+//}
+
 // Building requires repair to finish construction. Can be assisted to make the process faster
-"build_tech_center"
+ "build_tech_center"
 {
 	"BaseClass"             		"ability_datadriven"
 	"AbilityTextureName"			"build_tech_center"
