@@ -1,7 +1,7 @@
 --[[
 	Adds the search to the player research list
 ]]
-function ResearchComplete( event )
+--[[nolumber function ResearchComplete( event )
 	local caster = event.caster
 	local player = caster:GetPlayerOwner()
 	local ability = event.ability

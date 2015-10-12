@@ -1,7 +1,7 @@
 --[[
 	Replaces the building to the upgraded unit name
 ]]--
-function UpgradeBuilding( event )
+--[[nolumber function UpgradeBuilding( event )
 	local caster = event.caster
 	local new_unit = event.UnitName
 	local position = caster:GetAbsOrigin()
@@ -61,7 +61,7 @@ end
 	Disable any queue-able ability that the building could have, because the caster will be removed when the channel ends
 	A modifier from the ability can also be passed here to attach particle effects
 ]]--
-function StartUpgrade( event )	
+--[[nolumber function StartUpgrade( event )	
 	local caster = event.caster
 	local ability = event.ability
 	local modifier_name = event.ModifierName
@@ -106,7 +106,7 @@ end
 --[[
 	Replaces the building to the upgraded unit name
 ]]--
-function CancelUpgrade( event )
+--[[nolumber function CancelUpgrade( event )
 	
 	local caster = event.caster
 	local abilities = caster.disabled_abilities

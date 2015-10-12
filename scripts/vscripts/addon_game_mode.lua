@@ -3,7 +3,7 @@
 require('internal/util')
 require('gamemode')
 require('utilities')
-require('upgrades')
+--[[nolumber require('upgrades')]]
 require('mechanics')
 require('orders')
 require('builder')
@@ -59,18 +59,11 @@ function Precache( context )
 
 	-- Resources used
 	PrecacheUnitByNameSync("peasant", context)
-	PrecacheUnitByNameSync("tower", context)
   PrecacheUnitByNameSync("archery_tower", context)
   PrecacheUnitByNameSync("canon_tower", context)
   PrecacheUnitByNameSync("ram_tower", context)
   PrecacheUnitByNameSync("siege_tower", context)
-	PrecacheUnitByNameSync("tower_tier2", context)
-	PrecacheUnitByNameSync("city_center", context)
-	PrecacheUnitByNameSync("city_center_tier2", context)
-	PrecacheUnitByNameSync("tech_center", context)
-	PrecacheUnitByNameSync("dragon_tower", context)
-	PrecacheUnitByNameSync("dark_tower", context)
-	PrecacheUnitByNameSync("wall", context)
+
 
 	PrecacheItemByNameSync("item_apply_modifiers", context)
 

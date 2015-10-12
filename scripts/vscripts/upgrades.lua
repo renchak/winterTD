@@ -10,7 +10,7 @@ function CheckAbilityRequirements( unit, player )
 	local upgrades = player.upgrades
 
 	-- Check the Researches for this player, adjusting the abilities that have been already upgraded
-   CheckResearchRequirements( unit, player )
+   --[[nolumber CheckResearchRequirements( unit, player )]]
 
 	-- The disabled abilities end with this affix
 	local len = string.len("_disabled")

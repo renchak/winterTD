@@ -176,13 +176,13 @@ function GameMode:OnPlayerPickHero(keys)
 	player.units = {} -- This keeps the handle of all the units of the player, to iterate for unlocking upgrades
 	player.structures = {} -- This keeps the handle of the constructed units, to iterate for unlocking upgrades
 	player.buildings = {} -- This keeps the name and quantity of each building
-	player.upgrades = {} -- This kees the name of all the upgrades researched
+	--[[nolumber player.upgrades = {} -- This kees the name of all the upgrades researched
 	player.lumber = 0 -- Secondary resource of the player
 
   -- Create city center in front of the hero
-  local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
-  local city_center_name = "city_center"
-  local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
+  	local position = hero:GetAbsOrigin() + hero:GetForwardVector() * 300
+  	local city_center_name = "city_center"
+  	local building = BuildingHelper:PlaceBuilding(player, city_center_name, position, true, 5)
 
 	-- Set health to test repair
 	building:SetHealth(building:GetMaxHealth()/3)
@@ -197,14 +197,14 @@ function GameMode:OnPlayerPickHero(keys)
 	table.insert(player.structures, building)
 
 	CheckAbilityRequirements( hero, player )
-	CheckAbilityRequirements( building, player )
+	CheckAbilityRequirements( building, player )]]
 
 	-- Add the hero to the player units list
 	table.insert(player.units, hero)
 	hero.state = "idle" --Builder state
 
 	-- Spawn some peasants around the hero
-	local position = hero:GetAbsOrigin()
+	--[[nolumber local position = hero:GetAbsOrigin()
 	local numBuilders = 5
 	local angle = 360/numBuilders
 	for i=1,5 do
@@ -219,20 +219,20 @@ function GameMode:OnPlayerPickHero(keys)
 
 		-- Go through the abilities and upgrade
 		CheckAbilityRequirements( builder, player )
-	end
+	end]]
 
 	-- Give Initial Resources
 	hero:SetGold(5000, false)
-	ModifyLumber(player, 5000)
+	--ModifyLumber(player, 5000)
 
 	-- Lumber tick
-	Timers:CreateTimer(1, function()
+	--[[nolumber Timers:CreateTimer(1, function()
 		ModifyLumber(player, 10)
 		return 10
-	end)
+	end)]]
 
-	-- Give a building ability
-	local item = CreateItem("item_build_wall", hero, hero)
+	-- Give Blink Dagger
+	local item = CreateItem("item_blink", hero, hero)
 	hero:AddItem(item)
 
 	-- Learn all abilities (this isn't necessary on creatures)
