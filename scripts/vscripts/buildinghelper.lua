@@ -756,12 +756,12 @@ function BuildingHelper:CancelBuilding(keys)
     -- Refund
     local refund_factor = 0.75
     local gold_cost = math.floor(GetGoldCost(building) * refund_factor)
-    local lumber_cost = math.floor(GetLumberCost(building) * refund_factor)
+    --[[nolumber local lumber_cost = math.floor(GetLumberCost(building) * refund_factor)]]
 
     hero:ModifyGold(gold_cost, true, 0)
-    ModifyLumber( hero:GetPlayerOwner(), lumber_cost)
+    --[[nolumber ModifyLumber( hero:GetPlayerOwner(), lumber_cost)]]
     PopupGoldGain(building, gold_cost)
-    PopupLumber(building, lumber_cost)
+    --[[nolumber PopupLumber(building, lumber_cost)]]
 
     -- Eject builder
     local builder = building.builder_inside

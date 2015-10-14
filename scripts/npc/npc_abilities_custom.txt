@@ -1,6 +1,9 @@
 "DOTAAbilities"
 {
-	// Simple tower placement, normal behavior
+
+	//////////////////////////////////////////////////////
+	//			Tower building abilities				//
+	//////////////////////////////////////////////////////
 	"build_archery_tower"
 	{
 		"BaseClass"             		"ability_datadriven"
@@ -211,6 +214,62 @@
 			}
 		}
 	}
+
+	//////////////////////////////////////////////////////
+	//					Tower abilities					//
+	//////////////////////////////////////////////////////
+
+	"ram_cleave"	
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"sven_great_cleave"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"great_cleave_radius"	"300.0"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"great_cleave_damage"	"50"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_ram_cleave"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+				"OnAttackLanded"
+				{
+					"CleaveAttack"
+					{
+						"CleavePercent"		"%great_cleave_damage"
+						"CleaveRadius"		"%great_cleave_radius"
+						"CleaveEffect"		"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+					}
+				}
+			}
+		}
+
+
+	}
+
+	//////////////////////////////////////////////////////
+	//					Repair ability					//
+	//////////////////////////////////////////////////////
 
 	
 	"repair"
