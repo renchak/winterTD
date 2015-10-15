@@ -6,13 +6,13 @@
 	
 		"UnitLabel"					"builder"
 	
-		"AbilityLayout"				"5"
+		"AbilityLayout"				"6"
 		"Ability1" 					"repair"
 		"Ability2" 					"build_archery_tower"
 		"Ability3" 					"build_canon_tower"
 		"Ability4" 					"build_ram_tower"
 		"Ability5"					"build_siege_tower"
-		"Ability6" 					""
+		"Ability6" 					"build_poison_tower"
 		"Ability7"					""
 		"Ability8"					""
 		"Ability9"					""

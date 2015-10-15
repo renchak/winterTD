@@ -63,6 +63,7 @@ function Precache( context )
   PrecacheUnitByNameSync("canon_tower", context)
   PrecacheUnitByNameSync("ram_tower", context)
   PrecacheUnitByNameSync("siege_tower", context)
+  PrecacheUnitByNameSync("poison_tower", context)
 
 
 	PrecacheItemByNameSync("item_apply_modifiers", context)

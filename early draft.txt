@@ -37,10 +37,10 @@ Common Builder:					Damage:			Range:			Attackspeed:		Aoe/Single:			Övrigt:
 4. Ram 							hög damage 		låg range 		låg attackspeed 	aoe?
 
 Disable Builder:
-1. Slow Tower 					låg damage 		medium Range 	hög attackspeed 	singletarget	 	Invis detection, Slow
+1. Poison Tower 				låg damage 		medium Range 	hög attackspeed 	singletarget	 	Invis detection, Slow
 2. Web Tower 					låg damage 		medium Range 	hög attackspeed 	singletarget	 	Meepo nät vs flying
 3. Stun Tower 					låg damage 		medium Range 	låg attackspeed 	aoe 			 	Stun, wd cask? storm hammer?
-4. Area Slow 					medium damage 	låg Range 		hög attackspeed 	aoe	 	
+4. Armor Tower 					medium damage 	medium Range 	medium attackspeed	aoe					reducing armor aura (aoe desolator/shivas)
 
 Elemental Builder:
 1. Frost Tower 					medium damage 	medium Range 	medium attackspeed 	singletarget		op med aoe slow här också? (magic damage)
@@ -51,7 +51,7 @@ Elemental Builder:
 Aura Builder:
 1. Attackspeed Tower 			0				lång Range 		0 					aoe 				attackspeed aura
 2. Damage Tower 				0 				lång Range 		0 					aoe 				extra damage aura
-3. Armor Tower 					0 				lång Range 		0					aoe 				reducing armor aura (aoe desolator/shivas)
+3. Area Slow 					0			 	låg Range 		0				 	aoe	 	
 4. Magic Damage Tower 			0 				lång Range 		0 					aoe 				adds 25% extra damage to towers as magic damage
 
 
