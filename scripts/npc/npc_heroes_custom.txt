@@ -12,10 +12,65 @@
 		"Ability3" 					"build_canon_tower"
 		"Ability4" 					"build_ram_tower"
 		"Ability5"					"build_siege_tower"
-		"Ability6" 					"build_poison_tower"
+		"Ability6" 					"build_web_tower"
 		"Ability7"					""
 		"Ability8"					""
 		"Ability9"					""
 		"Ability10"					""
 	}
+	"npc_dota_hero_axe"
+	{
+		"override_hero"				"npc_dota_hero_axe"
+	
+		"UnitLabel"					"Disable Builder"
+	
+		"AbilityLayout"				"6"
+		"Ability1" 					"repair"
+		"Ability2" 					"build_poison_tower"
+		"Ability3" 					"build_web_tower"
+		"Ability4" 					"build_stun_tower"
+		"Ability5"					"build_armor_tower"
+		"Ability6" 					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+	}
+	"npc_dota_hero_luna"
+	{
+		"override_hero"				"npc_dota_hero_luna"
+	
+		"UnitLabel"					"Elemental Builder"
+	
+		"AbilityLayout"				"6"
+		"Ability1" 					"repair"
+		"Ability2" 					"build_frost_tower"
+		"Ability3" 					"build_fire_tower"
+		"Ability4" 					"build_storm_tower"
+		"Ability5"					"build_earth_tower"
+		"Ability6" 					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+	}
+	"npc_dota_hero_lina"
+	{
+		"override_hero"				"npc_dota_hero_lina"
+	
+		"UnitLabel"					"Aura Builder"
+	
+		"AbilityLayout"				"6"
+		"Ability1" 					"repair"
+		"Ability2" 					"build_speed_tower"
+		"Ability3" 					"build_damage_tower"
+		"Ability4" 					"build_slow_tower"
+		"Ability5"					"build_magic_tower"
+		"Ability6" 					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+	}
+
 }

@@ -280,6 +280,60 @@
 		}
 	}
 
+	"build_web_tower"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"build_web_tower"
+		"MaxLevel" 						"1"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"				"0"
+	
+		// BuildingHelper info
+		"Building"						"1" //bool
+		"BuildingSize"					"2"
+		"BuildTime"						"5.0"
+		"AbilityCastRange"				"200"
+		"UpdateHealth"					"1" //bool
+		"Scale"							"0" //bool
+		"PlayerCanControl"				"1" //bool
+	
+		"UnitName"						"web_tower"
+		"AbilityCooldown"				"0"
+		"AbilityGoldCost"				"50"
+		// End of BuildingHelper info
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"build_time"			"5.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_cost"				"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lumber_cost"			"0"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"builder.lua"
+				"Function"		"Build"
+			}
+		}
+	}
+
+
+
 
 	//////////////////////////////////////////////////////
 	//					Tower abilities					//
@@ -404,6 +458,119 @@
 			}
 		}
 	}
+
+	"web_flying"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"meepo_earthbind"
+		"AOERadius"						"%radius"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				""
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"220"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"857"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_targets"			"3"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"			"TARGET"
+				"EffectName"		"particles/units/heroes/hero_meepo/meepo_earthbind_projectile_fx.vpcf"
+				"MoveSpeed"			"%speed"
+				"SourceAttachment"		"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center" "Unit"
+	                "Radius" "%radius"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+	                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	                "MaxTargets" "%max_targets"
+	                "Random"     "1"
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_web_flying_root"
+				"Target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_web_flying_root"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+
+				"Duration"			"%duration"
+			
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_DISABLED"
+				}
+
+				"EffectName"		"particles/units/heroes/hero_meepo/meepo_earthbind_model_catch.vpcf"
+				"EffectAttachType"		"follow_origin"
+			}
+		}
+
+	}
+
+
 
 
 

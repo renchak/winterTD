@@ -59,12 +59,27 @@ function Precache( context )
 
 	-- Resources used
 	PrecacheUnitByNameSync("peasant", context)
+  -- Common Builder:
   PrecacheUnitByNameSync("archery_tower", context)
   PrecacheUnitByNameSync("canon_tower", context)
   PrecacheUnitByNameSync("ram_tower", context)
   PrecacheUnitByNameSync("siege_tower", context)
+  -- Disable Builder:
   PrecacheUnitByNameSync("poison_tower", context)
-
+  PrecacheUnitByNameSync("web_tower", context)
+  --PrecacheUnitByNameSync("stun_tower", context)
+  --PrecacheUnitByNameSync("armor_tower", context)
+  -- Elemental Builder:
+  --PrecacheUnitByNameSync("frost_tower", context)
+  --PrecacheUnitByNameSync("fire_tower", context)
+  --PrecacheUnitByNameSync("storm_tower", context)
+  --PrecacheUnitByNameSync("earth_tower", context)
+  -- Aura Builder:
+  --PrecacheUnitByNameSync("speed_tower", context)
+  --PrecacheUnitByNameSync("damage_tower", context)
+  --PrecacheUnitByNameSync("slow_tower", context)
+  --PrecacheUnitByNameSync("magic_tower", context)
+  -- Master Builder:
 
 	PrecacheItemByNameSync("item_apply_modifiers", context)
 
